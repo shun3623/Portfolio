@@ -6,12 +6,14 @@
     <title>PORTFOLIO | 金子 舜</title>
     <style>
         :root {
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --sub-text: #666666;
-            --accent-color: #0366d6;
-            --border-color: #e1e4e8;
+            --bg-color: #0b0e14;
+            --card-bg: rgba(22, 27, 34, 0.75);
+            --text-color: #e6edf3;
+            --sub-text: #8b949e;
+            --accent-blue: #79c0ff;
+            --accent-purple: #d2a8ff;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --border-glow: rgba(121, 192, 255, 0.25);
         }
 
         * {
@@ -22,51 +24,84 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(210, 168, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(121, 192, 255, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
             color: var(--text-color);
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px 0;
         }
 
+        /* ヘッダー部分 */
         header {
             text-align: center;
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
         }
 
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
+            font-size: 2.5rem;
+            margin-bottom: 2px;
+            background: linear-gradient(135deg, var(--text-color), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            color: var(--sub-text);
-            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
+        /* セクション共通スタイル */
         section {
             background: var(--card-bg);
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
             border: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+
+        section:hover{
+            border-color: var(--border-grow);
         }
 
         h2 {
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 8px;
-            margin-bottom: 20px;
+            font-size: 1.35rem;
+            color: var(--text-color);
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
+        h2::before{
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background: linear-gradient(to bottom, var(--accent-purple), var(--accent-blue));
+            border-radius: 4px;
+        }
+
+        /* 学歴スタイル */
         .education-list {
             list-style: none;
         }
@@ -74,8 +109,9 @@
         .education-item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
         }
 
         .education-item:last-child {
@@ -84,15 +120,16 @@
 
         .date {
             color: var(--sub-text);
-            font-weight: bold;
+            font-size: 0.88rem;
         }
 
+        /* 制作物カードスタイル */
         .project-card {
             border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 16px;
+            border-radius: 8px;
+            padding: 20px;
             margin-bottom: 24px;
-            background-color: #fafbfc;
+            background-color: rgba(13,17,23,0.6);
         }
 
         .project-card:last-child {
@@ -100,23 +137,26 @@
         }
 
         .project-title {
-            font-size: 1.25rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
         }
 
         .project-desc {
             color: var(--sub-text);
-            margin-bottom: 16px;
-            font-size: 0.95rem;
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         .video-container {
             position: relative;
             width: 100%;
-            margin-bottom: 16px;
-            border-radius: 4px;
+            margin-bottom: 18px;
+            border-radius: 6px;
             overflow: hidden;
             background: #000;
+            border: 1px solid var(--border-color);
         }
 
         video {
@@ -132,26 +172,31 @@
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 8px 16px;
-            background-color: var(--accent-color);
-            color: #ffffff;
+            background: transparent;
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: opacity 0.2s;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 1px;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
-            opacity: 0.85;
+            background: var(--accent-blue);
+            color: var(--bg-color);
+            box-shadow: 0 0 12px rgba(121,192,255,0.4);
         }
 
         footer {
             text-align: center;
             color: var(--sub-text);
-            font-size: 0.85rem;
-            margin-top: 40px;
+            font-size: 0.8rem;
+            margin-top: 50px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -164,25 +209,33 @@
             <p class="subtitle">Game Programmer</p>
         </header>
 
-        <section>
-            <h2>学歴</h2>
-            <ul class="education-list">
-                <li class="education-item">
-                    <span class="school">KCS北九州情報専門学校 大学併修課 卒業</span>
-                    <span class="date">2025年3月</span>
-                </li>
-                <li class="education-item">
-                    <span class="school">バンタンゲームアカデミー福岡校 在学中</span>
-                    <span class="date">2025年4月～現在</span>
-                </li>
-            </ul>
-        </section>
+        <!-- メインコンテンツ -->
+         <main>
+            <!-- 学歴 -->
+            <section>
+                <h2>学歴</h2>
+                <ul class="education-list">
+                    <li class="education-item">
+                        <span class="school">KCS北九州情報専門学校 大学併修課 卒業</span>
+                        <span class="date">2025年3月</span>
+                    </li>
+                    <li class="education-item">
+                        <span class="school">バンタンゲームアカデミー福岡校 在学中</span>
+                        <span class="date">2025年4月～現在</span>
+                    </li>
+                </ul>
+            </section>
 
-        <section>
-            <h2>制作物</h2>
-            <!-- ここに作品カードを追加していきます -->
-        </section>
+            <!-- 制作物 -->
+            <section>
+                <h2>制作物</h2>
 
+            </section>
+         </main>
+
+         <footer>
+            <p>&copy; 2026 Shun Kaneko. All Rights Reserved.</p>
+         </footer>
     </div>
 
 </body>
