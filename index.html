@@ -142,6 +142,22 @@
             margin-bottom: 10px;
         }
 
+        .project-tags{
+            display: flex;
+            gap: 6px;
+            flex-warp: wrap;
+            margin-bottom: 12px;
+        }
+
+        .tag{
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
         .project-desc {
             color: var(--sub-text);
             margin-bottom: 18px;
@@ -230,6 +246,25 @@
             <section>
                 <h2>制作物</h2>
                 <h3>3D</h3>
+                <!-- 作品カード -->
+                 <div class="video-container">
+                    <video controls poster="">
+
+                    </video>
+                 </div>
+
+                 <div class = "project-card">
+                    <h3 class="project-title">残躯</h3>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                    </div>
+                    <p class="project-desc">
+                        ゲームジャンル : 3D鬼ごっこ、微ホラー(個人開発)<br>
+                        開発期間 : 2026/08 ~ 2026/09<br>
+                        ゲーム概要 : 迫りくる敵から逃げつつ、正気度を保ちながらアイテムを収集するゲーム
+                    </p>
+                 </div>
                 <h3>2D</h3>
                 <!-- 作品カード -->
                  <div class="video-container">
@@ -240,13 +275,14 @@
 
                  <div class = "project-card">
                     <h3 class="project-title">Tracker</h3>
+                    <div class="project-tag">
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                    </div>
                     <p class="project-desc">
-                        ゲームジャンル : 2D鬼ごっこ、微ホラー<br>
-                        開発環境 : Unity<br>
-                        使用言語 : C＃<br>
+                        ゲームジャンル : 2D鬼ごっこ、微ホラー(個人開発)<br>
                         開発期間 : 2025/08 ~ 2025/09<br>
-                        ゲーム概要 : WASDで移動<br>
-                                    アイテムを5個拾ってかつ敵から50秒逃げ切るとクリア<br>
+                        ゲーム概要 : 迫りくる敵から逃げつつ、アイテムを収集するゲーム
                     </p>
                  </div>
 
